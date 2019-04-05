@@ -1,4 +1,5 @@
 //Extraido del libro: "Java Structures: Data Structures for the Principled Programmer, Seccion 14.4"
+import java.util.*;
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 
     protected Vector<E> data; // the data, kept in heap order
