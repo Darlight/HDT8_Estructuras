@@ -14,7 +14,7 @@ public class Paciente implements Comparable<Paciente>{
     public char getNivel_paciente() { return nivel_paciente; }
 
     public String getNombre_paciente() { return nombre_paciente;}
-    @override
+
     public int compareTo(Paciente paciente){
         return this.getNivel_paciente().compareTo(paciente.getNivel_paciente());
     }
