@@ -1,9 +1,16 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * Sirve para leer el Archivo de un .txt
+ */
 public class Archivo{
 
-    //El parametro que recibe es la direccion del archivo
+    /**
+     * @param direccion  la direccion del archivo
+     * @return El texto en un String
+     */
+    //El parametro que recibe es
     //que se desea leer
     public String leerTexto(String direccion){
 

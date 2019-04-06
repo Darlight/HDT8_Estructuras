@@ -1,22 +1,41 @@
+/**
+ * Se usa para la interfaz del PriorityQueue.
+ * Extraido de: "Java Structures: Data Structures for the Principled Programmer, Seccion 14.4"
+ * @param <E> Cualquier objeto o dato primitivo
+ */
 public interface PriorityQueue<E extends Comparable<E>>{
+    /**
+     * @return Devuelve el primer dato de prioridad
+     */
     public E getFirst();
-    //pre: !isEmpty()
-    //post: regresa el valor minimo en la priority queue
 
+    /**
+     * Remueve un objeto del Priority
+     * @return PrioriQueue
+     */
     public E remove();
-    //pre: !isEmpty()
-    //post; regresa y remueve el valor minimo de la queue
 
+
+    /**
+     * Agrega un objeto al PriorityQueue
+     * @param value Objeto o dato primitivo
+     */
     public void add(E value);
-    //pre: value is non-null comparable
-    //post: el valor es agregado a la priority queue
 
+    /**
+     * Verifica si esta vacio el PriorityQueue
+     * @return Devuelve un false o true. Verdadero si esta vacio, falso de lo contrario.
+     */
     public boolean isEmpty();
-    //post: regresa verdadero si no hay elementos en la queue
 
+    /**
+     * Devuelve el tamaño del PriorityQueue
+     * @return Un int del tamaño del PriorityQueue
+     */
     public int size();
-    //post: regresa el numero de elementos dentro de la queue
 
+    /**
+     * Remueve todos los elementos del PriorityQueue
+     */
     public void clear();
-    //post: remueve todos los elementos de la queue
 }
