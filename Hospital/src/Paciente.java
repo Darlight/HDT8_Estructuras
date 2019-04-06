@@ -7,7 +7,7 @@ import java.util.*;
 public class Paciente implements Comparable<Paciente>{
     private String nombre_paciente;
     private String descripcion_paciente;
-    private char nivel_paciente;
+    private Character nivel_paciente;
 
     /**
      * Constructor del Paciente
@@ -15,7 +15,7 @@ public class Paciente implements Comparable<Paciente>{
      * @param descripcion Descripcion de su estatus
      * @param nivel Nivel de prioridad
      */
-    public Paciente(String nombre, String descripcion, char nivel){
+    public Paciente(String nombre, String descripcion, Character nivel){
         this.nombre_paciente = nombre;
         this.descripcion_paciente = descripcion;
         this.nivel_paciente = nivel;
@@ -41,13 +41,19 @@ public class Paciente implements Comparable<Paciente>{
 
     /**
      * Compara el nivel de prioridad con el paciente actual y otro.
-     * @param paciente El otro paciente que esta comparando su nivel prioridad
+     *  paciente El otro paciente que esta comparando su nivel prioridad
      * @return -1 si es el paciente actual es mayor prioridad, 1 si es menor prioridad que el otro paciente.
      */
 
     @Override
-    public int compareTo(Paciente paciente){
-        //No se porque da error, investigando
-        return (this.getNivel_paciente().compareTo(paciente.getNivel_paciente()));
+    public int compareTo(Paciente p2) {
+        int result = 0;
+        if (this.nivel_paciente<p2.nivel_paciente) {
+            result= -1;
+        }
+        else if (this.nivel_paciente> p2.nivel_paciente) {
+            result = 1;
+        }
+        return result;
     }
 }

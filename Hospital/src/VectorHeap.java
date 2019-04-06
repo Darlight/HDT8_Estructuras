@@ -5,9 +5,7 @@ import java.util.*;
  * Vector heap es otro tipo de PrioryQueue utilizando arboles.
  * @param <E> Objeto o dato primitivo
  */
-//No se porque da error, investigando
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueueInterface<E>{
-
     protected Vector<E> data; // the data, kept in heap order
 
     /**
@@ -63,12 +61,91 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueInterfa
      * @param i Posicion del nodo de un arbol
      * @return Indice del nodo derecho en la localizacion de i
      */
-    protected static int right(int i)
+    protected static int right(int i){
     // pre: 0 <= i < size
     // post: returns index of right child of node at location i
-    {
         return 2*(i+1);
     }
 
+    @Override
+    public E getFirst() {
+        return data.get(0);
+    }
+
+    @Override
+    public E remove() {
+        E minVal = getFirst();
+        data.set(0,data.get(data.size()-1));
+        data.setSize(data.size()-1);
+        if (data.size() > 1) pushDownRoot(0);
+        return minVal;
+    }
+
+    protected void pushDownRoot(int raiz)
+    // pre: 0 <= raiz < size
+    // post: moves node at index root down to appropriate position in subtree
+    {
+        int heapSize = data.size();
+        E valor = data.get(raiz);
+        while (raiz < heapSize) {
+            int poshijo = left(raiz);
+            if (poshijo < heapSize)
+            {
+                if ((right(raiz) < heapSize) && ((data.get(poshijo+1)).compareTo(data.get(poshijo)) < 0)) {
+                    poshijo++;
+                }
+                if ((data.get(poshijo)).compareTo(valor) < 0) {
+                    data.set(raiz,data.get(poshijo));
+                    raiz = poshijo;
+                } else {
+                    data.set(raiz,valor);
+                    return;
+                }
+            } else {
+                data.set(raiz,valor);
+                return;
+            }
+        }
+    }
+
+    protected void percolateUp(int hoja)
+    // pre: 0 <= leaf < size
+    // post: moves node at index leaf up to appropriate position
+    {
+        int padre = parent(hoja);
+        E value = data.get(hoja);
+        while (hoja > 0 &&
+                (value.compareTo(data.get(padre)) < 0))
+        {
+            data.set(hoja,data.get(padre));
+            hoja = padre;
+            padre = parent(hoja);
+        }
+        data.set(hoja,value);
+    }
+
+    @Override
+    public void add(E value) {
+        data.add(value);
+        percolateUp(data.size()-1);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        if (data.size()==0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int size() {
+        return data.size();
+    }
+
+    @Override
+    public void clear() {
+
+    }
 }
 

@@ -3,8 +3,7 @@
  * Extraido de: "Java Structures: Data Structures for the Principled Programmer, Seccion 14.4"
  * @param <E> Cualquier objeto o dato primitivo
  */
-import java.util.*;
-public interface PriorityQueueInterface<E extends Comparable<E>>{
+public interface PriorityQueueInterface<E extends Comparable<E>> {
     /**
      * @return Devuelve el primer dato de prioridad
      */
