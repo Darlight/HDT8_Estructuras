@@ -5,9 +5,9 @@ import java.util.*;
  * Clase de un paciente
  */
 public class Paciente implements Comparable<Paciente>{
-    String nombre_paciente;
-    String descripcion_paciente;
-    char nivel_paciente;
+    private String nombre_paciente;
+    private String descripcion_paciente;
+    private char nivel_paciente;
 
     /**
      * Constructor del Paciente

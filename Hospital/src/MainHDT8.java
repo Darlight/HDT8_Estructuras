@@ -14,7 +14,7 @@ import java.io.*;
  * ambos casos de priorityQueue del simulador del hospital.
  */
 public class MainHDT8{
-    public static void main(String args[]){
+    public static void main(String args[]) throws IOException {
         //Asignaciones de variables
         Scanner scan = new Scanner(System.in);
         PriorityQueue<Paciente> pQueue = new PriorityQueue<Paciente>();
@@ -33,28 +33,46 @@ public class MainHDT8{
             switch (opcion){
                 //VectorHeap
                 case 1:
-                    for (int i= 0; i < /*Lenght del texto*/;i++){
-                        //Aqui se tiene que hacer que la clase Archivo.java pueda seperar el nomnre, descripcion y prioridad
-                        //para poder colocarlos en la variable nuevo_paciente
-                        Paciente nuevo_paciente = new Paciente(/*parametros: nombre,descripcion, prioridad */);
-                        vHeap.add(nuevo_paciente);
-                        //Ejemplo!
-                        // Adding items to the pQueue using add()
-                        // pQueue.add("C");
-                        //pQueue.add("C++");
-                        //pQueue.add("Java");
-                        //pQueue.add("Python");
+                    try {
+                        FileReader fr = new FileReader("C:\\\\Users\\\\josue\\\\Documents\\\\GitHub\\\\HDT8_Estructuras\\\\pacientes.txt");
+                        //C:\\Users\\josue\\Documents\\GitHub\\HDT8_Estructuras\\pacientes.txt
+                        BufferedReader br = new BufferedReader(fr);
+                        String[] lista;
+
+                        String cadena = br.readLine();
+                        while (cadena != null) {
+                            lista = cadena.split(",");
+                            Paciente nuevo_paciente = new Paciente(lista[0], lista[1], lista[2].replaceAll("\\s+", "").charAt(0));
+                                vHeap.add(nuevo_paciente);
+                                // Adding items to the pQueue using add()
+                                // pQueue.add("Java");
+
+                            cadena = br.readLine();
+                        }
+                    } catch (Exception e){
+                        System.out.println("No se encontro el archivo en la direccion ingresada");
                     }
-                    //Luego aqui se ordenan utilizando los metodos del vHeap
-                    //Codigo....
                     break;
                 //Java Collection PriorityQueue
                 case 2:
-                    for (int i= 0; i < /*Lenght del texto*/;i++){
-                        //Aqui se tiene que hacer que la clase Archivo.java pueda seperar el nomnre, descripcion y prioridad
-                        //para poder colocarlos en la variable nuevo_paciente
-                        Paciente nuevo_paciente = new Paciente(/*parametros: nombre,descripcion, prioridad */);
-                        vHeap.add(nuevo_paciente);
+                    try {
+                        FileReader fr = new FileReader("C:\\\\Users\\\\josue\\\\Documents\\\\GitHub\\\\HDT8_Estructuras\\\\pacientes.txt");
+                        //C:\\Users\\josue\\Documents\\GitHub\\HDT8_Estructuras\\pacientes.txt
+                        BufferedReader br = new BufferedReader(fr);
+                        String[] lista;
+
+                        String cadena = br.readLine();
+                        while (cadena != null) {
+                            lista = cadena.split(",");
+                            Paciente nuevo_paciente = new Paciente(lista[0], lista[1], lista[2].replaceAll("\\s+", "").charAt(0));
+                                vHeap.add(nuevo_paciente);
+                                // Adding items to the pQueue using add()
+                                // pQueue.add("Java");
+                            
+                            cadena = br.readLine();
+                        }
+                    } catch (Exception e){
+                        System.out.println("No se encontro el archivo en la direccion ingresada");
                     }
                     //Luego aqui se ordenan utilizando los metodos de pQueue
                     //Codigo....
@@ -65,6 +83,5 @@ public class MainHDT8{
                     break;
             }
         }
-
     }
 }
