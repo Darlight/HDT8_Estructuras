@@ -1,11 +1,12 @@
 //Extraido del libro: "Java Structures: Data Structures for the Principled Programmer, Seccion 14.4"
-import java.util.*;
 
+import java.util.*;
 /**
  * Vector heap es otro tipo de PrioryQueue utilizando arboles.
  * @param <E> Objeto o dato primitivo
  */
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
+//No se porque da error, investigando
+public class VectorHeap<E extends Comparable<E>> implements PriorityQueueInterface<E>{
 
     protected Vector<E> data; // the data, kept in heap order
 
@@ -20,7 +21,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 
     /**
      * Otro constructor que recive como parametro un vector desordenado
-     * @param Un vector desordenado
+     * @param v Un vector de tipo E
      */
     public VectorHeap(Vector<E> v)
     // post: constructs a new priority queue from an unordered vector
@@ -68,5 +69,6 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
     {
         return 2*(i+1);
     }
+
 }
 

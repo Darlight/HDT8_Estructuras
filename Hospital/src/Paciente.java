@@ -1,6 +1,8 @@
+
+import java.util.*;
+
 /**
- * La clase paciente es donde se define las caracteristicas de una persona.
- * Implementa Comparable para un compareTo modificado.
+ * Clase de un paciente
  */
 public class Paciente implements Comparable<Paciente>{
     String nombre_paciente;
@@ -42,8 +44,10 @@ public class Paciente implements Comparable<Paciente>{
      * @param paciente El otro paciente que esta comparando su nivel prioridad
      * @return -1 si es el paciente actual es mayor prioridad, 1 si es menor prioridad que el otro paciente.
      */
-    @override
+
+    @Override
     public int compareTo(Paciente paciente){
+        //No se porque da error, investigando
         return (this.getNivel_paciente().compareTo(paciente.getNivel_paciente()));
     }
 }
